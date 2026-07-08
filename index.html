@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amILate? – Support</title>
+  <meta name="description" content="Get help with amILate?, the leave-time app built for ADHD brains and time blindness. Contact support or browse common questions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d14;
+      --surface: #15151f;
+      --surface2: #1c1c2a;
+      --border: rgba(255,255,255,0.07);
+      --accent: #7c6fea;
+      --accent-glow: rgba(124, 111, 234, 0.25);
+      --green: #4ade80;
+      --text: #f0f0f5;
+      --muted: #8888a8;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,111,234,0.18) 0%, transparent 70%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 18px 6px 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .app-badge .dot {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #7c6fea, #b06ef0);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #7c6fea, #b06ef0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #7c6fea, #b06ef0);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 0 32px var(--accent-glow);
+    }
+
+    .contact-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* ── CONTENT ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    /* ── FAQ ── */
+    .faq { display: flex; flex-direction: column; gap: 12px; margin-bottom: 64px; }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details[open] { border-color: rgba(124,111,234,0.4); }
+
+    summary {
+      padding: 18px 20px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--accent);
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    .faq-body {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      background: rgba(124,111,234,0.1);
+      border: 1px solid rgba(124,111,234,0.25);
+      border-radius: 999px;
+      padding: 10px 22px;
+      transition: background 0.2s;
+    }
+
+    .email-link:hover { background: rgba(124,111,234,0.2); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="app-badge">
+      <span class="dot">⏱</span>
+      amILate? Support
+    </div>
+    <h1>We've got your <span>back</span>.</h1>
+    <p>Time blindness is hard enough. Getting help shouldn't be.</p>
+    <a class="contact-btn" href="mailto:tsolaadebayo@gmail.com">
+      ✉️ &nbsp;Email Support
+    </a>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <!-- FAQ -->
+    <p class="section-label">Common Questions</p>
+    <div class="faq">
+
+      <details>
+        <summary>How does amILate? calculate when I need to leave?</summary>
+        <div class="faq-body">
+          amILate? uses your destination, travel mode, and any buffer time you set to work backwards from your arrival time — giving you a precise moment to walk out the door.
+        </div>
+      </details>
+
+      <details>
+        <summary>What do the points mean?</summary>
+        <div class="faq-body">
+          Points are a way to track your punctuality over time. You earn points for arriving early or on time, and lose points for late arrivals or no-shows. Your total score reflects your overall consistency — think of it as a personal punctuality streak.
+        </div>
+      </details>
+
+      <details>
+        <summary>Why is the app designed for ADHD?</summary>
+        <div class="faq-body">
+          Time blindness — difficulty sensing how much time is passing — is a core challenge for many people with ADHD. amILate? removes the mental math of departure planning so your brain can focus on actually getting ready, not calculating.
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I set a buffer for getting ready?</summary>
+        <div class="faq-body">
+          Yes! When creating a trip, you can add extra buffer time to account for getting dressed, finding your keys, or any other pre-departure routine that takes time.
+        </div>
+      </details>
+
+      <details>
+        <summary>My points seem off — what should I do?</summary>
+        <div class="faq-body">
+          If your points look incorrect, try closing and reopening the app — it will automatically repair any outdated trip records. If the issue persists, contact us and we'll sort it out.
+        </div>
+      </details>
+
+      <details>
+        <summary>Is my data stored on my device?</summary>
+        <div class="faq-body">
+          Yes. All your trips and progress data are stored locally on your device. We don't collect or transmit personal data to any external servers.
+        </div>
+      </details>
+
+    </div>
+
+    <!-- CONTACT -->
+    <p class="section-label">Still need help?</p>
+    <div class="contact-card">
+      <h2>Reach out anytime</h2>
+      <p>We typically respond within 1–2 business days.</p>
+      <a class="email-link" href="mailto:tsolaadebayo@gmail.com">
+        ✉️ tsolaadebayo@gmail.com
+      </a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 amILate? &nbsp;·&nbsp; <a href="https://oncuego.org">oncuego.org</a></p>
+  </footer>
+
+</body>
+</html>
