@@ -3,137 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>amILate? – Support</title>
-  <meta name="description" content="Get help with amILate?, the leave-time app built for ADHD brains and time blindness. Contact support or browse common questions." />
+  <title>amILate? / OnCue Go – Support</title>
+  <meta name="description" content="Get help with amILate? / OnCue Go, the leave-time app built for ADHD brains and time blindness. Contact support or browse common questions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0d0d14;
-      --surface: #15151f;
-      --surface2: #1c1c2a;
-      --border: rgba(255,255,255,0.07);
-      --accent: #7c6fea;
-      --accent-glow: rgba(124, 111, 234, 0.25);
-      --green: #4ade80;
-      --text: #f0f0f5;
-      --muted: #8888a8;
-      --radius: 16px;
+      --bg: #050708;
+      --surface: #0f1215;
+      --surface2: #161a1f;
+      --border: rgba(255, 255, 255, 0.05);
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.15);
+      --green: #10b981;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --radius: 20px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Outfit', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
     }
 
-    /* ── HERO ── */
-    .hero {
-      text-align: center;
-      padding: 80px 24px 60px;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,111,234,0.18) 0%, transparent 70%);
-      border-bottom: 1px solid var(--border);
+    /* Gradient glow effects */
+    .glow {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .app-badge {
-      display: inline-flex;
+    /* ── CONTAINER & LAYOUT ── */
+    .wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px;
+      z-index: 1;
+    }
+
+    header {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 18px 6px 8px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: var(--muted);
+      justify-content: space-between;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
     }
 
-    .app-badge .dot {
-      width: 28px; height: 28px;
-      background: linear-gradient(135deg, #7c6fea, #b06ef0);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
     }
 
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 58px);
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    }
+
+    .brand h1 {
+      font-size: 20px;
       font-weight: 700;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
-    .hero h1 span {
-      background: linear-gradient(90deg, #7c6fea, #b06ef0);
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.3fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── LEFT COLUMN: HERO & CONTACT ── */
+    .hero-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-panel h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    .hero-panel h2 span {
+      background: linear-gradient(90deg, #a78bfa, #c084fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .hero p {
-      font-size: 18px;
+    .hero-panel p {
+      font-size: 16px;
       color: var(--muted);
-      max-width: 500px;
-      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
     }
 
     .contact-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 10px;
       background: linear-gradient(135deg, #7c6fea, #b06ef0);
       color: #fff;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 999px;
+      padding: 12px 24px;
+      border-radius: 12px;
       text-decoration: none;
       transition: opacity 0.2s, transform 0.2s;
-      box-shadow: 0 0 32px var(--accent-glow);
+      box-shadow: 0 4px 20px var(--accent-glow);
     }
 
-    .contact-btn:hover { opacity: 0.85; transform: translateY(-2px); }
-
-    /* ── CONTENT ── */
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
+    .contact-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
-    .section-label {
-      font-size: 11px;
+    /* ── RIGHT COLUMN: FAQ ACCORDION ── */
+    .faq-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 20px;
+      margin-bottom: 8px;
     }
 
-    /* ── FAQ ── */
-    .faq { display: flex; flex-direction: column; gap: 12px; margin-bottom: 64px; }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
     details {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 14px;
       overflow: hidden;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background-color 0.2s;
     }
 
-    details[open] { border-color: rgba(124,111,234,0.4); }
+    details[open] {
+      border-color: rgba(139, 92, 246, 0.3);
+      background: var(--surface2);
+    }
 
     summary {
-      padding: 18px 20px;
-      font-size: 15px;
-      font-weight: 500;
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
       list-style: none;
       display: flex;
@@ -146,148 +216,129 @@
 
     summary::after {
       content: '+';
-      font-size: 20px;
+      font-size: 18px;
       color: var(--accent);
-      font-weight: 300;
+      font-weight: 400;
       transition: transform 0.2s;
     }
 
-    details[open] summary::after { transform: rotate(45deg); }
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
 
     .faq-body {
-      padding: 0 20px 18px;
-      font-size: 14px;
+      padding: 0 20px 16px;
+      font-size: 13.5px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.6;
     }
-
-    /* ── CONTACT CARD ── */
-    .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      text-align: center;
-    }
-
-    .contact-card h2 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 24px;
-    }
-
-    .email-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      background: rgba(124,111,234,0.1);
-      border: 1px solid rgba(124,111,234,0.25);
-      border-radius: 999px;
-      padding: 10px 22px;
-      transition: background 0.2s;
-    }
-
-    .email-link:hover { background: rgba(124,111,234,0.2); }
 
     /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 28px;
+      padding: 24px;
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
+      width: 100%;
+      background: var(--bg);
+      z-index: 1;
     }
 
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--text); }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* ── RESPONSIVE DESIGN ── */
+    @media (max-width: 768px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      header {
+        margin-bottom: 24px;
+      }
+      .wrapper {
+        padding: 20px 16px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="app-badge">
-      <span class="dot">⏱</span>
-      amILate? Support
-    </div>
-    <h1>We've got your <span>back</span>.</h1>
-    <p>Time blindness is hard enough. Getting help shouldn't be.</p>
-    <a class="contact-btn" href="mailto:tsolaadebayo@gmail.com">
-      ✉️ &nbsp;Email Support
-    </a>
-  </section>
+  <div class="glow"></div>
 
-  <!-- MAIN CONTENT -->
-  <div class="container">
-
-    <!-- FAQ -->
-    <p class="section-label">Common Questions</p>
-    <div class="faq">
-
-      <details>
-        <summary>How does amILate? calculate when I need to leave?</summary>
-        <div class="faq-body">
-          amILate? uses your destination, travel mode, and any buffer time you set to work backwards from your arrival time — giving you a precise moment to walk out the door.
-        </div>
-      </details>
-
-      <details>
-        <summary>What do the points mean?</summary>
-        <div class="faq-body">
-          Points are a way to track your punctuality over time. You earn points for arriving early or on time, and lose points for late arrivals or no-shows. Your total score reflects your overall consistency — think of it as a personal punctuality streak.
-        </div>
-      </details>
-
-      <details>
-        <summary>Why is the app designed for ADHD?</summary>
-        <div class="faq-body">
-          Time blindness — difficulty sensing how much time is passing — is a core challenge for many people with ADHD. amILate? removes the mental math of departure planning so your brain can focus on actually getting ready, not calculating.
-        </div>
-      </details>
-
-      <details>
-        <summary>Can I set a buffer for getting ready?</summary>
-        <div class="faq-body">
-          Yes! When creating a trip, you can add extra buffer time to account for getting dressed, finding your keys, or any other pre-departure routine that takes time.
-        </div>
-      </details>
-
-      <details>
-        <summary>My points seem off — what should I do?</summary>
-        <div class="faq-body">
-          If your points look incorrect, try closing and reopening the app — it will automatically repair any outdated trip records. If the issue persists, contact us and we'll sort it out.
-        </div>
-      </details>
-
-      <details>
-        <summary>Is my data stored on my device?</summary>
-        <div class="faq-body">
-          Yes. All your trips and progress data are stored locally on your device. We don't collect or transmit personal data to any external servers.
-        </div>
-      </details>
-
-    </div>
-
-    <!-- CONTACT -->
-    <p class="section-label">Still need help?</p>
-    <div class="contact-card">
-      <h2>Reach out anytime</h2>
-      <p>We typically respond within 1–2 business days.</p>
-      <a class="email-link" href="mailto:tsolaadebayo@gmail.com">
-        ✉️ tsolaadebayo@gmail.com
+  <div class="wrapper">
+    <!-- HEADER -->
+    <header>
+      <a href="#" class="brand">
+        <img src="icon_small.png" alt="amILate? Logo" />
+        <h1>amILate?</h1>
       </a>
-    </div>
+    </header>
 
+    <!-- CONTENT GRID -->
+    <div class="main-grid">
+      <!-- LEFT: HERO & CONTACT -->
+      <div class="hero-panel">
+        <h2>We've got your <span>back</span>.</h2>
+        <p>Time blindness is a core challenge. amILate? (OnCue Go) works backwards from your target arrival to calculate exactly when to leave—removing the mental math so you can focus on getting ready.</p>
+        
+        <div class="contact-card">
+          <h3>Need Support?</h3>
+          <p>Have questions about tracking, points, or setup? Email us and we'll help you get sorted.</p>
+          <a class="contact-btn" href="mailto:tsolaadebayo@gmail.com">
+            ✉️ &nbsp;Email Support
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: FAQ ACCORDION -->
+      <div class="faq-panel">
+        <p class="section-title">Common Questions</p>
+        <div class="faq-list">
+          <details>
+            <summary>How does the app calculate when I need to leave?</summary>
+            <div class="faq-body">
+              amILate? uses your destination, travel mode, and buffer time to calculate your departure schedule. It monitors route traffic changes in the background and warns you if your departure window shifts.
+            </div>
+          </details>
+
+          <details>
+            <summary>What do the points and streaks mean?</summary>
+            <div class="faq-body">
+              Points keep you motivated! You earn points for leaving/arriving early or on time, and lose points for no-shows. Build your punctuality streak by staying consistent.
+            </div>
+          </details>
+
+          <details>
+            <summary>Why is the app optimized for ADHD?</summary>
+            <div class="faq-body">
+              People with ADHD often experience time blindness. This app is designed to trigger timely alerts, sound alarms, and display Live Activities on your lock screen so you don't lose track of time.
+            </div>
+          </details>
+
+          <details>
+            <summary>Is my location data secure?</summary>
+            <div class="faq-body">
+              Absolutely. All your routing, schedules, and location coordinates are processed on your device and are never shared or sent to external database servers.
+            </div>
+          </details>
+
+          <details>
+            <summary>How do I reset my streaks or progress?</summary>
+            <div class="faq-body">
+              You can manage your user profiles, review points breakdown, or reset your streaks directly from the Settings tab in the app.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- FOOTER -->
